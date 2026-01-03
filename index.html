@@ -206,62 +206,62 @@
   </div>
 
   <script>
-    const DELIVERY_PRICES = { 
-      "أدرار": { home: 1200, office: 800 },
-      "الشلف": { home: 800, office: 500 },
-      "الأغواط": { home: 950, office: 600 },
-      "أم البواقي": { home: 900, office: 500 },
-      "باتنة": { home: 850, office: 500 },
-      "بجاية": { home: 800, office: 500 },
-      "بسكرة": { home: 900, office: 500 },
-      "بشار": { home: 1100, office: 700 },
-      "البليدة": { home: 600, office: 500 },
-      "البويرة": { home: 700, office: 500 },
-      "تمنراست": { home: 1600, office: 1100 },
-      "تبسة": { home: 900, office: 600 },
-      "تلمسان": { home: 900, office: 600 },
-      "تيارت": { home: 850, office: 500 },
-      "تيزي وزو": { home: 750, office: 500 },
-      "الجزائر": { home: 500, office: 400 },
-      "الجلفة": { home: 950, office: 600 },
-      "جيجل": { home: 900, office: 500 },
-      "سطيف": { home: 800, office: 500 },
-      "سعيدة": { home: 900, office: 600 },
-      "سكيكدة": { home: 900, office: 500 },
-      "سيدي بلعباس": { home: 900, office: 500 },
-      "عنابة": { home: 850, office: 500 },
-      "قالمة": { home: 900, office: 500 },
-      "قسنطينة": { home: 800, office: 500 },
-      "المدية": { home: 800, office: 500 },
-      "مستغانم": { home: 900, office: 500 },
-      "المسيلة": { home: 850, office: 600 },
-      "معسكر": { home: 900, office: 500 },
-      "ورقلة": { home: 950, office: 700 },
-      "وهران": { home: 800, office: 500 },
-      "البيض": { home: 1100, office: 700 },
-      "برج بوعريريج": { home: 800, office: 500 },
-      "بومرداس": { home: 700, office: 500 },
-      "الطارف": { home: 850, office: 500 },
-      "تيسمسيلت": { home: 900, office: 500 },
-      "الوادي": { home: 950, office: 700 },
-      "خنشلة": { home: 900, office: 500 },
-      "سوق أهراس": { home: 900, office: 500 },
-      "تيبازة": { home: 700, office: 500 },
-      "ميلة": { home: 900, office: 500 },
-      "عين الدفلى": { home: 900, office: 500 },
-      "النعامة": { home: 1100, office: 700 },
-      "عين تموشنت": { home: 900, office: 500 },
-      "غرداية": { home: 950, office: 600 },
-      "غليزان": { home: 900, office: 500 },
-      "تيميمون": { home: 1400, office: 1000 },
-      "أولاد جلال": { home: 950, office: 600 },
-      "بني عباس": { home: 1100, office: 800 },
-      "توقرت": { home: 950, office: 700 },
-      "المغير": { home: 950, office: 700 },
-      "المنيعة": { home: 1000, office: 800 }
-    };
+  const DELIVERY_PRICES = { 
+    "أدرار": { home: 1200, office: 800 },
+    "الشلف": { home: 800, office: 500 },
+    "الأغواط": { home: 950, office: 600 },
+    "أم البواقي": { home: 900, office: 500 },
+    "باتنة": { home: 850, office: 500 },
+    "بجاية": { home: 800, office: 500 },
+    "بسكرة": { home: 900, office: 500 },
+    "بشار": { home: 1100, office: 700 },
+    "البليدة": { home: 600, office: 500 },
+    "البويرة": { home: 700, office: 500 },
+    "تمنراست": { home: 1600, office: 1100 },
+    "تبسة": { home: 900, office: 600 },
+    "تلمسان": { home: 900, office: 600 },
+    "تيارت": { home: 850, office: 500 },
+    "تيزي وزو": { home: 750, office: 500 },
+    "الجزائر": { home: 500, office: 400 },
+    "الجلفة": { home: 950, office: 600 },
+    "جيجل": { home: 900, office: 500 },
+    "سطيف": { home: 800, office: 500 },
+    "سعيدة": { home: 900, office: 600 },
+    "سكيكدة": { home: 900, office: 500 },
+    "سيدي بلعباس": { home: 900, office: 500 },
+    "عنابة": { home: 850, office: 500 },
+    "قالمة": { home: 900, office: 500 },
+    "قسنطينة": { home: 800, office: 500 },
+    "المدية": { home: 800, office: 500 },
+    "مستغانم": { home: 900, office: 500 },
+    "المسيلة": { home: 850, office: 600 },
+    "معسكر": { home: 900, office: 500 },
+    "ورقلة": { home: 950, office: 700 },
+    "وهران": { home: 800, office: 500 },
+    "البيض": { home: 1100, office: 700 },
+    "برج بوعريريج": { home: 800, office: 500 },
+    "بومرداس": { home: 700, office: 500 },
+    "الطارف": { home: 850, office: 500 },
+    "تيسمسيلت": { home: 900, office: 500 },
+    "الوادي": { home: 950, office: 700 },
+    "خنشلة": { home: 900, office: 500 },
+    "سوق أهراس": { home: 900, office: 500 },
+    "تيبازة": { home: 700, office: 500 },
+    "ميلة": { home: 900, office: 500 },
+    "عين الدفلى": { home: 900, office: 500 },
+    "النعامة": { home: 1100, office: 700 },
+    "عين تموشنت": { home: 900, office: 500 },
+    "غرداية": { home: 950, office: 600 },
+    "غليزان": { home: 900, office: 500 },
+    "تيميمون": { home: 1400, office: 1000 },
+    "أولاد جلال": { home: 950, office: 600 },
+    "بني عباس": { home: 1100, office: 800 },
+    "توقرت": { home: 950, office: 700 },
+    "المغير": { home: 950, office: 700 },
+    "المنيعة": { home: 1000, office: 800 }
+  };
 
-    const BUREAUX = {
+  const BUREAUX = {
       "الجزائر": [
         "ABE1 Agence de Aïn Benian [Guepex]",
         "ALG1 Sacré-Cœur [Guepex]",
@@ -472,7 +472,7 @@
       ]
     };
 
-    const IMAGE_MAP = {
+  const IMAGE_MAP = {
     "أزرق": "coussinphoto.jpg",
     "أسود": "coussinphoto.jpg"
   };
@@ -522,54 +522,45 @@
   }
 
   function updatePrice() {
-  const quantity = parseInt(document.getElementById('quantity').value) || 0;
-  const wilaya = document.getElementById('wilaya').value;
-  const deliveryType = document.getElementById('deliveryType').value;
+    const quantity = parseInt(document.getElementById('quantity').value) || 0;
+    const wilaya = document.getElementById('wilaya').value;
+    const deliveryType = document.getElementById('deliveryType').value;
 
-  // Prix selon la quantité choisie (prix total fixe)
-  let basePrice = 0;
-  if (quantity === 1) basePrice = 3500;
-  else if (quantity === 2) basePrice = 6500;
-  else if (quantity === 3) basePrice = 9000;
+    // Prix promo fixe selon la quantité
+    let basePrice = 0;
+    if (quantity === 1) basePrice = 3500;
+    else if (quantity === 2) basePrice = 6500;
+    else if (quantity === 3) basePrice = 9000;
 
-  // Frais de livraison
-  let deliveryCost = 0;
-  if (wilaya && deliveryType && DELIVERY_PRICES[wilaya]) {
-    deliveryCost = deliveryType === 'home' 
-      ? DELIVERY_PRICES[wilaya].home 
-      : DELIVERY_PRICES[wilaya].office;
-  }
-
-  // Total final
-  const total = basePrice + deliveryCost;
-  document.getElementById('totalPriceValue').innerText = total;
-}
-
+    // Frais de livraison
     let deliveryCost = 0;
     if (wilaya && deliveryType && DELIVERY_PRICES[wilaya]) {
-      deliveryCost = deliveryType === 'home' 
-        ? DELIVERY_PRICES[wilaya].home 
+      deliveryCost = deliveryType === 'home'
+        ? DELIVERY_PRICES[wilaya].home
         : DELIVERY_PRICES[wilaya].office;
     }
 
+    // Total final
     const total = basePrice + deliveryCost;
     document.getElementById('totalPriceValue').innerText = total;
   }
 
-  // Updated AJAX Submit with total in URL and better error handling
+  // Soumission du formulaire
   document.querySelector('form').addEventListener('submit', function(e) {
     e.preventDefault();
+
     const baladia = document.getElementById('commune').value.trim();
     if (baladia === '') {
       alert('البلدية مطلوبة');
       return;
     }
+
     const button = this.querySelector('button[type="submit"]');
     const originalText = button.innerText;
     button.disabled = true;
     button.innerText = 'جاري الإرسال...';
 
-    // Get total for Meta Pixel tracking
+    // Récupère le total pour le tracking Meta
     const total = document.getElementById('totalPriceValue').innerText || '3500';
 
     const formData = new FormData(this);
@@ -588,8 +579,8 @@
       }
     })
     .catch(err => {
-      console.error('Error:', err); // Log to console for debugging
-      alert('حدث خطأ أثناء الإرسال. تحقق من الاتصال أو جرب لاحقاً: ' + err.message);
+      console.error('Error:', err);
+      alert('حدث خطأ أثناء الإرسال. تأكد من الاتصال بالإنترنت وحاول مرة أخرى.');
     })
     .finally(() => {
       button.disabled = false;
@@ -597,7 +588,3 @@
     });
   });
 </script>
-</body>
-
-</html>
-
