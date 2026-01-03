@@ -473,112 +473,113 @@
     };
 
     const IMAGE_MAP = {
-      "أزرق": "coussinphoto.jpg",
-      "أسود": "coussinphoto.jpg"
-    };
+    "أزرق": "coussinphoto.jpg",
+    "أسود": "coussinphoto.jpg"
+  };
 
-    function updateImage() {
-      const color = document.getElementById('color').value;
-      const img = document.getElementById('productImage');
-      if (IMAGE_MAP[color]) {
-        img.src = IMAGE_MAP[color];
-        img.alt = `Coussin Moto Confort Max - ${color}`;
-      }
+  function updateImage() {
+    const color = document.getElementById('color').value;
+    const img = document.getElementById('productImage');
+    if (IMAGE_MAP[color]) {
+      img.src = IMAGE_MAP[color];
+      img.alt = `Coussin Moto Confort Max - ${color}`;
     }
+  }
 
-    function updateBureaux() {
-      const wilaya = document.getElementById('wilaya').value;
-      const deliveryType = document.getElementById('deliveryType').value;
-      const bureauGroup = document.getElementById('bureauGroup');
-      const bureauSelect = document.getElementById('bureau');
+  function updateBureaux() {
+    const wilaya = document.getElementById('wilaya').value;
+    const deliveryType = document.getElementById('deliveryType').value;
+    const bureauGroup = document.getElementById('bureauGroup');
+    const bureauSelect = document.getElementById('bureau');
 
-      if (deliveryType === 'office' && wilaya) {
-        bureauGroup.style.display = 'block';
-        bureauSelect.innerHTML = '<option value="">اختر المكتب</option>';
-        const bureaux = BUREAUX[wilaya] || ['مكتب Yalidine الرئيسي في ' + wilaya];
-        bureaux.forEach(bureau => {
-          bureauSelect.innerHTML += `<option value="${bureau}">${bureau}</option>`;
-        });
-        bureauSelect.setAttribute('required', 'required');
-      } else {
-        bureauGroup.style.display = 'none';
-        bureauSelect.value = '';
-        bureauSelect.removeAttribute('required');
-      }
-      updatePrice();
-    }
-
-    function validateBaladia() {
-      const baladia = document.getElementById('commune').value.trim();
-      const errorDiv = document.getElementById('baladiaError');
-      const input = document.getElementById('commune');
-      if (baladia === '') {
-        input.classList.add('error');
-        errorDiv.style.display = 'block';
-      } else {
-        input.classList.remove('error');
-        errorDiv.style.display = 'none';
-      }
-    }
-
-    function updatePrice() {
-      const quantity = parseInt(document.getElementById('quantity').value) || 1;
-      const wilaya = document.getElementById('wilaya').value;
-      const deliveryType = document.getElementById('deliveryType').value;
-
-      // Prix de base
-      let basePrice = quantity * 3500;
-
-      // Frais de livraison
-      let deliveryCost = 0;
-      if (wilaya && deliveryType && DELIVERY_PRICES[wilaya]) {
-        deliveryCost = deliveryType === 'home' 
-          ? DELIVERY_PRICES[wilaya].home 
-          : DELIVERY_PRICES[wilaya].office;
-      }
-
-      // Total final
-      const total = basePrice + deliveryCost;
-      document.getElementById('totalPriceValue').innerText = total;
-    }
-
-    // AJAX Submit
-    document.querySelector('form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const baladia = document.getElementById('commune').value.trim();
-      if (baladia === '') {
-        alert('البلدية مطلوبة');
-        return;
-      }
-      const button = this.querySelector('button[type="submit"]');
-      const originalText = button.innerText;
-      button.disabled = true;
-      button.innerText = 'جاري الإرسال...';
-
-      const formData = new FormData(this);
-      const encoded = new URLSearchParams(formData).toString();
-
-      fetch('/', {
-        method: 'POST',
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encoded
-      })
-      .then(response => {
-        if (response.ok) {
-          window.location.href = '/merci.html?success=true';
-        } else {
-          throw new Error('Erreur Netlify: ' + response.status);
-        }
-      })
-      .catch(err => {
-        console.error(err);
-        alert('خطأ في الإرسال: ' + err.message);
-      })
-      .finally(() => {
-        button.disabled = false;
-        button.innerText = originalText;
+    if (deliveryType === 'office' && wilaya) {
+      bureauGroup.style.display = 'block';
+      bureauSelect.innerHTML = '<option value="">اختر المكتب</option>';
+      const bureaux = BUREAUX[wilaya] || ['مكتب Yalidine الرئيسي في ' + wilaya];
+      bureaux.forEach(bureau => {
+        bureauSelect.innerHTML += `<option value="${bureau}">${bureau}</option>`;
       });
+      bureauSelect.setAttribute('required', 'required');
+    } else {
+      bureauGroup.style.display = 'none';
+      bureauSelect.value = '';
+      bureauSelect.removeAttribute('required');
+    }
+    updatePrice();
+  }
+
+  function validateBaladia() {
+    const baladia = document.getElementById('commune').value.trim();
+    const errorDiv = document.getElementById('baladiaError');
+    const input = document.getElementById('commune');
+    if (baladia === '') {
+      input.classList.add('error');
+      errorDiv.style.display = 'block';
+    } else {
+      input.classList.remove('error');
+      errorDiv.style.display = 'none';
+    }
+  }
+
+  function updatePrice() {
+    const quantity = parseInt(document.getElementById('quantity').value) || 1;
+    const wilaya = document.getElementById('wilaya').value;
+    const deliveryType = document.getElementById('deliveryType').value;
+
+    let basePrice = quantity * 3500;
+
+    let deliveryCost = 0;
+    if (wilaya && deliveryType && DELIVERY_PRICES[wilaya]) {
+      deliveryCost = deliveryType === 'home' 
+        ? DELIVERY_PRICES[wilaya].home 
+        : DELIVERY_PRICES[wilaya].office;
+    }
+
+    const total = basePrice + deliveryCost;
+    document.getElementById('totalPriceValue').innerText = total;
+  }
+
+  // Updated AJAX Submit with total in URL and better error handling
+  document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const baladia = document.getElementById('commune').value.trim();
+    if (baladia === '') {
+      alert('البلدية مطلوبة');
+      return;
+    }
+    const button = this.querySelector('button[type="submit"]');
+    const originalText = button.innerText;
+    button.disabled = true;
+    button.innerText = 'جاري الإرسال...';
+
+    // Get total for Meta Pixel tracking
+    const total = document.getElementById('totalPriceValue').innerText || '3500';
+
+    const formData = new FormData(this);
+    const encoded = new URLSearchParams(formData).toString();
+
+    fetch('/', {
+      method: 'POST',
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encoded
+    })
+    .then(response => {
+      if (response.ok) {
+        window.location.href = `/merci.html?success=true&total=${total}`;
+      } else {
+        throw new Error('خطأ في الإرسال: ' + response.statusText);
+      }
+    })
+    .catch(err => {
+      console.error('Error:', err); // Log to console for debugging
+      alert('حدث خطأ أثناء الإرسال. تحقق من الاتصال أو جرب لاحقاً: ' + err.message);
+    })
+    .finally(() => {
+      button.disabled = false;
+      button.innerText = originalText;
     });
-  </script>
+  });
+</script>
 </body>
+
 </html>
