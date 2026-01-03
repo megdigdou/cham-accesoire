@@ -96,8 +96,8 @@
         <select id="quantity" name="الكمية" onchange="updatePrice()" required>
           <option value="">اختر الكمية</option>
           <option value="1">1 - 3500 دج</option>
-          <option value="2">2 - 7000 دج</option>
-          <option value="3">3 - 10500 دج</option>
+          <option value="2">2 - 6500 دج</option>
+          <option value="3">3 - 9000 دج</option>
         </select>
       </div>
 
@@ -522,11 +522,28 @@
   }
 
   function updatePrice() {
-    const quantity = parseInt(document.getElementById('quantity').value) || 1;
-    const wilaya = document.getElementById('wilaya').value;
-    const deliveryType = document.getElementById('deliveryType').value;
+  const quantity = parseInt(document.getElementById('quantity').value) || 0;
+  const wilaya = document.getElementById('wilaya').value;
+  const deliveryType = document.getElementById('deliveryType').value;
 
-    let basePrice = quantity * 3500;
+  // Prix selon la quantité choisie (prix total fixe)
+  let basePrice = 0;
+  if (quantity === 1) basePrice = 3500;
+  else if (quantity === 2) basePrice = 6500;
+  else if (quantity === 3) basePrice = 9000;
+
+  // Frais de livraison
+  let deliveryCost = 0;
+  if (wilaya && deliveryType && DELIVERY_PRICES[wilaya]) {
+    deliveryCost = deliveryType === 'home' 
+      ? DELIVERY_PRICES[wilaya].home 
+      : DELIVERY_PRICES[wilaya].office;
+  }
+
+  // Total final
+  const total = basePrice + deliveryCost;
+  document.getElementById('totalPriceValue').innerText = total;
+}
 
     let deliveryCost = 0;
     if (wilaya && deliveryType && DELIVERY_PRICES[wilaya]) {
@@ -583,3 +600,4 @@
 </body>
 
 </html>
+
