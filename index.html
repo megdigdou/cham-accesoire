@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coussin Moto Confort Max - Premium Collection - CHAM ACCESSOIRE</title>
+  <meta name="description" content="Coussin Moto Confort Max فاخر - 2 couleurs - 3500 دج فقط.">
+  <meta property="og:title" content="Coussin Moto Confort Max - CHAM ACCESSOIRE">
+  <meta property="og:description" content="طبعة 2025 الجديدة ب 3500 دج فقط!">
+  <meta property="og:image" content="coussinphoto.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: hsl(217, 91%, 60%);
+      --secondary: hsl(142, 76%, 36%);
+      --background: hsl(210, 30%, 98%);
+      --foreground: hsl(215, 25%, 15%);
+      --muted: hsl(210, 40%, 96%);
+      --border: hsl(214, 32%, 91%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+    }
+    .container { max-width: 500px; margin: 0 auto; padding: 16px; }
+    .header {
+      background: linear-gradient(135deg, var(--primary), hsl(205, 100%, 65%));
+      color: white; text-align: center; padding: 20px; border-radius: 0 0 16px 16px;
+    }
+    .header h1 { font-size: 1.5rem; margin-bottom: 8px; }
+    .product-card { background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(59,130,246,0.1); padding: 20px; margin: 20px 0; text-align: center; }
+    .product-img { max-width: 280px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 16px; }
+    .price { font-size: 1.8rem; font-weight: 800; color: var(--secondary); margin: 12px 0; }
+    .badge { background: rgba(16,185,129,0.15); color: var(--secondary); padding: 4px 12px; border-radius: 999px; font-weight: 600; margin-bottom: 12px; display: inline-block; }
+    .form-group { margin-bottom: 16px; }
+    label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
+    input, select {
+      width: 100%; padding: 14px; border: 2px solid var(--border); border-radius: 12px; font-size: 1rem; background: white;
+      transition: border 0.2s;
+    }
+    input:focus, select:focus { border-color: var(--primary); outline: none; }
+    .error { border-color: #ef4444 !important; }
+    .error-msg { color: #ef4444; font-size: 0.8rem; margin-top: 4px; }
+    .total-price {
+      background: #ecfdf5; padding: 16px; border-radius: 12px; font-weight: 700; text-align: center; margin: 20px 0;
+      border: 2px solid #a7f3d0; font-size: 1.3rem; color: #166534;
+    }
+    button {
+      width: 100%; background: linear-gradient(to right, var(--primary), #2563eb); color: white; padding: 16px;
+      border-radius: 12px; font-size: 1.2rem; font-weight: 700; border: none; cursor: pointer;
+      box-shadow: 0 6px 20px rgba(59,130,246,0.3); transition: 0.3s;
+    }
+    button:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(59,130,246,0.4); }
+    button:disabled { opacity: 0.7; cursor: not-allowed; }
+    .footer { background: var(--foreground); color: white; padding: 32px 0; margin-top: 64px; text-align: center; }
+    .footer a {
+      background: var(--secondary); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none;
+      font-weight: 700; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;
+    }
+    .footer a:hover { background: #0d9f70; }
+    #bureauGroup { display: none; }
+    @keyframes pulse-soft { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .9; transform: scale(1.02); } }
+    .animate-pulse-soft { animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>مرحباً بكم في CHAM ACCESSOIRE</h1>
+      <p>منتجات عالية الجودة بأسعار لا تُقاوم</p>
+    </div>
+
+    <div class="product-card">
+      <img class="product-img" id="productImage" src="coussinphoto.jpg" alt="Coussin Moto Confort Max">
+      <div class="price">3500 دج فقط!</div>
+      <div class="badge">طبعة 2025 الجديدة - 2 ألوان حصرية</div>
+    </div>
+
+    <form name="commande-coussin" netlify netlify-honeypot="_gotcha" data-netlify="true" method="POST">
+      <input type="hidden" name="_gotcha" style="display:none !important">
+
+      <div class="form-group">
+        <label for="color">اللون *</label>
+        <select id="color" name="اللون" onchange="updateImage(); updatePrice()" required>
+          <option value="">اختر اللون</option>
+          <option value="أزرق">أزرق</option>
+          <option value="أسود">أسود</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">الكمية *</label>
+        <select id="quantity" name="الكمية" onchange="updatePrice()" required>
+          <option value="">اختر الكمية</option>
+          <option value="1">1 - 3500 دج</option>
+          <option value="2">2 - 7000 دج</option>
+          <option value="3">3 - 10500 دج</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="fullName">الاسم الكامل *</label>
+        <input id="fullName" name="الاسم" type="text" required placeholder="أدخل اسمك الكامل">
+      </div>
+
+      <div class="form-group">
+        <label for="phone">رقم الهاتف *</label>
+        <input id="phone" name="رقم الهاتف" type="tel" required placeholder="0541961243">
+      </div>
+
+      <div class="form-group">
+        <label for="wilaya">الولاية *</label>
+        <select id="wilaya" name="الولاية" onchange="updateBureaux()" required>
+          <option value="">اختر الولاية</option>
+          <option value="أدرار">أدرار</option>
+          <option value="الشلف">الشلف</option>
+          <option value="الأغواط">الأغواط</option>
+          <option value="أم البواقي">أم البواقي</option>
+          <option value="باتنة">باتنة</option>
+          <option value="بجاية">بجاية</option>
+          <option value="بسكرة">بسكرة</option>
+          <option value="بشار">بشار</option>
+          <option value="البليدة">البليدة</option>
+          <option value="البويرة">البويرة</option>
+          <option value="تمنراست">تمنراست</option>
+          <option value="تبسة">تبسة</option>
+          <option value="تلمسان">تلمسان</option>
+          <option value="تيارت">تيارت</option>
+          <option value="تيزي وزو">تيزي وزو</option>
+          <option value="الجزائر">الجزائر</option>
+          <option value="الجلفة">الجلفة</option>
+          <option value="جيجل">جيجل</option>
+          <option value="سطيف">سطيف</option>
+          <option value="سعيدة">سعيدة</option>
+          <option value="سكيكدة">سكيكدة</option>
+          <option value="سيدي بلعباس">سيدي بلعباس</option>
+          <option value="عنابة">عنابة</option>
+          <option value="قالمة">قالمة</option>
+          <option value="قسنطينة">قسنطينة</option>
+          <option value="المدية">المدية</option>
+          <option value="مستغانم">مستغانم</option>
+          <option value="المسيلة">المسيلة</option>
+          <option value="معسكر">معسكر</option>
+          <option value="ورقلة">ورقلة</option>
+          <option value="وهران">وهران</option>
+          <option value="البيض">البيض</option>
+          <option value="برج بوعريريج">برج بوعريريج</option>
+          <option value="بومرداس">بومرداس</option>
+          <option value="الطارف">الطارف</option>
+          <option value="تيسمسيلت">تيسمسيلت</option>
+          <option value="الوادي">الوادي</option>
+          <option value="خنشلة">خنشلة</option>
+          <option value="سوق أهراس">سوق أهراس</option>
+          <option value="تيبازة">تيبازة</option>
+          <option value="ميلة">ميلة</option>
+          <option value="عين الدفلى">عين الدفلى</option>
+          <option value="النعامة">النعامة</option>
+          <option value="عين تموشنت">عين تموشنت</option>
+          <option value="غرداية">غرداية</option>
+          <option value="غليزان">غليزان</option>
+          <option value="تيميمون">تيميمون</option>
+          <option value="أولاد جلال">أولاد جلال</option>
+          <option value="بني عباس">بني عباس</option>
+          <option value="توقرت">توقرت</option>
+          <option value="المغير">المغير</option>
+          <option value="المنيعة">المنيعة</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="commune">البلدية *</label>
+        <input id="commune" name="البلدية" type="text" required placeholder="أدخل اسم البلدية" onblur="validateBaladia()">
+        <div id="baladiaError" class="error-msg" style="display:none;">البلدية مطلوبة</div>
+      </div>
+
+      <div class="form-group">
+        <label for="deliveryType">نوع التوصيل *</label>
+        <select id="deliveryType" name="نوع التوصيل" onchange="updateBureaux()" required>
+          <option value="">اختر نوع التوصيل</option>
+          <option value="home">إلى المنزل</option>
+          <option value="office">إلى مكتب Yalidine</option>
+        </select>
+      </div>
+
+      <div class="form-group" id="bureauGroup">
+        <label for="bureau">مكتب Yalidine *</label>
+        <select id="bureau" name="مكتب Yalidine" required>
+          <option value="">اختر المكتب</option>
+        </select>
+      </div>
+
+      <div class="total-price">
+        المجموع الكلي: <span id="totalPriceValue">3500</span> دج
+      </div>
+
+      <button type="submit" class="animate-pulse-soft">اطلب الآن</button>
+    </form>
+
+    <footer class="footer">
+      <p>© 2026 CHAM ACCESSOIRE - جميع الحقوق محفوظة</p>
+      <a href="https://wa.me/213554229075" target="_blank">تواصل معنا عبر واتساب</a>
+    </footer>
+  </div>
+
+  <script>
+    const DELIVERY_PRICES = { 
+      "أدرار": { home: 1200, office: 800 },
+      "الشلف": { home: 800, office: 500 },
+      "الأغواط": { home: 950, office: 600 },
+      "أم البواقي": { home: 900, office: 500 },
+      "باتنة": { home: 850, office: 500 },
+      "بجاية": { home: 800, office: 500 },
+      "بسكرة": { home: 900, office: 500 },
+      "بشار": { home: 1100, office: 700 },
+      "البليدة": { home: 600, office: 500 },
+      "البويرة": { home: 700, office: 500 },
+      "تمنراست": { home: 1600, office: 1100 },
+      "تبسة": { home: 900, office: 600 },
+      "تلمسان": { home: 900, office: 600 },
+      "تيارت": { home: 850, office: 500 },
+      "تيزي وزو": { home: 750, office: 500 },
+      "الجزائر": { home: 500, office: 400 },
+      "الجلفة": { home: 950, office: 600 },
+      "جيجل": { home: 900, office: 500 },
+      "سطيف": { home: 800, office: 500 },
+      "سعيدة": { home: 900, office: 600 },
+      "سكيكدة": { home: 900, office: 500 },
+      "سيدي بلعباس": { home: 900, office: 500 },
+      "عنابة": { home: 850, office: 500 },
+      "قالمة": { home: 900, office: 500 },
+      "قسنطينة": { home: 800, office: 500 },
+      "المدية": { home: 800, office: 500 },
+      "مستغانم": { home: 900, office: 500 },
+      "المسيلة": { home: 850, office: 600 },
+      "معسكر": { home: 900, office: 500 },
+      "ورقلة": { home: 950, office: 700 },
+      "وهران": { home: 800, office: 500 },
+      "البيض": { home: 1100, office: 700 },
+      "برج بوعريريج": { home: 800, office: 500 },
+      "بومرداس": { home: 700, office: 500 },
+      "الطارف": { home: 850, office: 500 },
+      "تيسمسيلت": { home: 900, office: 500 },
+      "الوادي": { home: 950, office: 700 },
+      "خنشلة": { home: 900, office: 500 },
+      "سوق أهراس": { home: 900, office: 500 },
+      "تيبازة": { home: 700, office: 500 },
+      "ميلة": { home: 900, office: 500 },
+      "عين الدفلى": { home: 900, office: 500 },
+      "النعامة": { home: 1100, office: 700 },
+      "عين تموشنت": { home: 900, office: 500 },
+      "غرداية": { home: 950, office: 600 },
+      "غليزان": { home: 900, office: 500 },
+      "تيميمون": { home: 1400, office: 1000 },
+      "أولاد جلال": { home: 950, office: 600 },
+      "بني عباس": { home: 1100, office: 800 },
+      "توقرت": { home: 950, office: 700 },
+      "المغير": { home: 950, office: 700 },
+      "المنيعة": { home: 1000, office: 800 }
+    };
+
+    const BUREAUX = {
+      "الجزائر": [
+        "ABE1 Agence de Aïn Benian [Guepex]",
+        "ALG1 Sacré-Cœur [Guepex]",
+        "BAL1 Agence de Bab El Oued [Guepex]",
+        "BAZ2 Agence Bab Ezzouar [Yalitec]",
+        "BAC1 Agence Bachdjerrah [WeCanServices]",
+        "BAA1 Agence de Baraki [Guepex]",
+        "BIO2 Agence Bir Mourad Rais [EasyAndSpeed]",
+        "BIK1 Agence de Birkhadem [Yalidine]",
+        "BIU1 Agence de Birtouta [Guepex]",
+        "BRJ1 Agence Bordj El Bahri (Café Chergui) [Yalidine]",
+        "BEK1 Agence de Bordj El Kiffan [Yalidine]",
+        "CHG1 Dar Diaf [Yalidine]",
+        "CHG2 Amara [Yalidine]",
+        "DAE3 Agence d'El Hamiz [EasyandSpeed]",
+        "DRR1 Agence de Draria [Guepex]",
+        "HUS1 Hussein Dey [Yalidine]",
+        "LES2 Agence Les Eucalyptus [Zimou-Express]",
+        "MAE1 Agence de Sidi Abdellah [Zimou Express]",
+        "OES3 Agence El Harrach-Beaulieu [WeCanServices]",
+        "OLA1 Agence de Ouled Fayet [Guepex]",
+        "REH1 Agence de DNC [Yalidine]",
+        "ROU1 Agence de Rouiba [Zimou-Express]",
+        "ZRD1 Agence de Zeralda [Guepex]"
+      ],
+      "عين الدفلى": [
+        "ADF1 Agence de Aïn Defla [Guepex]",
+        "KMI1 Agence de Khemis Miliana [Guepex]"
+      ],
+      "عين تموشنت": [
+        "AEU1 Agence de Aïn Témouchent [Yalidine]",
+        "BAF1 Agence de Beni Saf [Guepex]"
+      ],
+      "عنابة": [
+        "AAA1 Agence de Valmascort [Yalidine]",
+        "AAA2 Agence de Sidi Brahim [Guepex]",
+        "AAA3 Agence Sidi Achour GHANZOH EXPRESS By YALIDINE",
+        "EBU1 Agence de El Bouni [Guepex]"
+      ],
+      "باتنة": [
+        "BAR1 Agence de Barika [Guepex]",
+        "BAT1 Agence des 500 Logements [Yalidine]",
+        "BAT3 Agence du CHU Route de Tazoult [Guepex]"
+      ],
+      "بشار": [
+        "BCH1 Agence de Béchar centre ville [Yalidine]",
+        "BCH2 Agence Béchar cité al salam [EasyAndSpeed]"
+      ],
+      "بجاية": [
+        "AKB1 Agence de Akbou [Yalidine]",
+        "BEJ1 Agence de Béjaïa cité tobal [Guepex]",
+        "BEJ2 Agence de Béjaïa Edimco [Yalidine]",
+        "ELU1 Agence de El Kseur [Guepex]"
+      ],
+      "بسكرة": [
+        "BIS2 Agence zone ouest Biskra [Easyandspeed]",
+        "TOL1 Agence de Tolga [Guepex]"
+      ],
+      "البليدة": [
+        "BLI1 Agence de Blida [Yalidine]",
+        "BLI2 Agence de Bab Dzair [Guepex]",
+        "BOF1 Agence de Boufarik [Guepex]",
+        "LAA1 Agence de Larbaa [Zimou-Express]",
+        "MOZ1 Agence Mouzaia Blida [Guepex]",
+        "OLY1 Agence Ouled Yaich [Yalidine]"
+      ],
+      "برج بوعريريج": [
+        "BRB1 Agence de El Djebasse [Yalidine]",
+        "BRB3 Agence BBA Nouveau Lycée [Guepex]"
+      ],
+      "البويرة": [
+        "BUI1 Agence de Bouira [Yalidine]",
+        "LAK1 Agence de Lakhdaria [Yalidine]",
+        "SOR1 Agence de Sour El Ghouzlane [Guepex]"
+      ],
+      "بومرداس": [
+        "BRN1 Agence de Bordj Menaiel [Guepex]",
+        "BDO1 Agence Boudouaou [Guepex]",
+        "BMR1 Agence de Boumerdès [Yalidine]",
+        "HME1 agence Hammedi [WeCanServices]"
+      ],
+      "الشلف": [
+        "CHL1 Agence de Chlef [Yalidine]",
+        "CHL2 Agence de Chlef [Guepex]",
+        "TEN1 Agence de Ténès [Guepex]"
+      ],
+      "قسنطينة": [
+        "CON1 Agence Belle Vue [Yalidine]",
+        "CON2 Agence Sidi Mabrouk [Guepex]",
+        "CON3 Agence de Constantine Zouaghi [Zimou Express]",
+        "DID1 Agence de Didouche Mourad [Yalidine]",
+        "EKR1 Agence d'El Khroub [Guepex]",
+        "EKR2 Agence Nouvelle ville Ali Mendjeli [Yalidine]",
+        "EKR5 Agence Nouvelle Ville [Guepex]"
+      ],
+      "الجلفة": [
+        "ANS1 Agence de Aïn Oussara [Yalidine]",
+        "DJF1 Agence de Djelfa [Yalidine]"
+      ],
+      "المغير": [
+        "DAA1 Agence de Bouhraoua [Yalidine]"
+      ],
+      "قالمة": [
+        "GUM1 Nouvelle Agence Guelma [Yalidine]",
+        "ODZ1 Agence de Oued Zenati [Guepex]"
+      ],
+      "إليزي": [
+        "ILZ1 Agence de Illizi [Guepex]",
+        "INM1 Agence In Amenas [Guepex]"
+      ],
+      "جيجل": [
+        "EML1 Agence de El Milia [Guepex]",
+        "JIJ1 Agence de Jijel [Yalidine]",
+        "KAO1 Agence Jijel Kaous [Yalidine]",
+        "THE1 Agence de Taher [Guepex]"
+      ],
+      "الأغواط": [
+        "AFL1 Agence de Aflou [Yalidine]",
+        "LAG2 Agence Laghouat (Cité OASIS) [Easyandspeed]"
+      ],
+      "المسيلة": [
+        "BRH1 Agence de Berhoum [Guepex]",
+        "BSA1 Agence de Bou Saâda [Yalidine]",
+        "MSL2 Agence Salem Shopping Mall [Yalidine]",
+        "SSS1 Agence Sidi Aïssa [Guepex]"
+      ],
+      "المدية": [
+        "BSL1 Agence Médéa Beni Slimane [Yalidine]",
+        "MDE1 Agence de Médéa El Koutab [Yalidine]",
+        "MDE2 Agence de Médéa Pole Urbain [Guepex]",
+        "TBL1 Agence Tablat [Yalidine]"
+      ],
+      "ميلة": [
+        "CEH1 Agence de Chelghoum Laid [Yalidine]",
+        "MIL1 Agence de Mila [Yalidine]"
+      ],
+      "مستغانم": [
+        "MOT1 Salamandre [Yalidine]",
+        "MOT2 Kharouba [Guepex]"
+      ],
+      "وهران": [
+        "ARZ1 Agence de Arzew [Guepex]",
+        "BIJ1 El Morchid [Yalidine]",
+        "BIJ2 Agence Fernand Ville [Yalidine]",
+        "BIJ3 Agence ILAF Belkaïd Oran [EasyAndSpeed]",
+        "ORA1 Saint Hubert [Yalidine]",
+        "ORA2 Cité Djamel [Guepex]",
+        "ORA3 Agence de Gambetta [Zimou-Express]"
+      ],
+      "ورقلة": [
+        "HSE1 Agence de Hassi Messaoud [Yalidine]",
+        "OAR1 Agence de Ouargla Centre ville [Guepex]",
+        "OAR2 Agence de Ouargla (Chetti el wekal) [Yalidine]"
+      ],
+      "أم البواقي": [
+        "AIL1 Agence de Aïn M'lila [Yalidine]",
+        "OUU1 Agence de Oum el Bouaghi [Yalidine]"
+      ],
+      "سطيف": [
+        "AOL1 Agence de Aïn Oulmene [Guepex]",
+        "BGA1 Agence de Bougaa [Guepex]",
+        "EEU2 Desk El Eulma [Yalidine]",
+        "EEU3 Agence El Eulma Cité Sonatrach Smara S [Easy&Speed]",
+        "OEO1 Agence de Sétif Tinar [Zimou-Express]",
+        "STI1 Agence Maabouda [Yalidine]",
+        "STI2 Agence de El Hidhab [Guepex]"
+      ],
+      "سيدي بلعباس": [
+        "SDS1 Agence de Sidi Bel Abbes [Yalidine]",
+        "SDS2 Agence Sidi Bel Abbès Benhamouda [Guepex]"
+      ],
+      "سكيكدة": [
+        "AZB1 Agence de Azzaba [Guepex]",
+        "COL1 Agence de Collo [Guepex]",
+        "EHU1 Agence de El Harrouch [Guepex]",
+        "SKI2 Nouvelle Agence Skikda L'espérance [Yalidine]",
+        "SKI3 Agence de Skikda Faubourg [Guepex]"
+      ],
+      "تمنراست": [
+        "TAN1 Agence de Tamanrasset (Gataâ El Oued) [Guepex]",
+        "TAN2 Agence Tamanrasset (Tahaggart) [Yalidine]",
+        "TAN3 Agence de Tamanrasset (Sorro Ivolutif) [Easy&Speed]"
+      ],
+      "تبسة": [
+        "CER1 Agence Cheria Tébessa [Guepex]",
+        "TEB1 Agence de Tébessa [Yalidine]",
+        "TEB3 Centre de tri Skanska Tébessa [Yalidine]"
+      ],
+      "تيبازة": [
+        "CEC1 Agence Cherchell [Guepex]",
+        "HAT1 Agence Hadjout Rue de stade [Easy&speed]",
+        "KOL1 Agence Koléa [Guepex]",
+        "TIP1 Agence Tipaza [Yalidine]"
+      ],
+      "تيزي وزو": [
+        "AZZ1 Agence de Azazga [Yalidine]",
+        "DRB1 Agence de Draâ Ben Khedda [Guepex]",
+        "TZI1 Agence de Tizi Gheniff [Guepex]",
+        "TZO1 Agence de Bekkar [Guepex]",
+        "TZO2 Agence de Nouvelle Ville [Yalidine]"
+      ],
+      "تلمسان": [
+        "CHU1 Agence Chetouane [Yalidine]",
+        "MAG1 Agence de Maghnia [Yalidine]",
+        "REM1 Agence Remchi [Yalidine]",
+        "TLE1 Agence de Tlemcen (Bel-Air) [Guepex]",
+        "TLE3 Agence de Tlemcen (Mansourah) [Yalidine]"
+      ]
+    };
+
+    const IMAGE_MAP = {
+      "أزرق": "coussinphoto.jpg",
+      "أسود": "coussinphoto.jpg"
+    };
+
+    function updateImage() {
+      const color = document.getElementById('color').value;
+      const img = document.getElementById('productImage');
+      if (IMAGE_MAP[color]) {
+        img.src = IMAGE_MAP[color];
+        img.alt = `Coussin Moto Confort Max - ${color}`;
+      }
+    }
+
+    function updateBureaux() {
+      const wilaya = document.getElementById('wilaya').value;
+      const deliveryType = document.getElementById('deliveryType').value;
+      const bureauGroup = document.getElementById('bureauGroup');
+      const bureauSelect = document.getElementById('bureau');
+
+      if (deliveryType === 'office' && wilaya) {
+        bureauGroup.style.display = 'block';
+        bureauSelect.innerHTML = '<option value="">اختر المكتب</option>';
+        const bureaux = BUREAUX[wilaya] || ['مكتب Yalidine الرئيسي في ' + wilaya];
+        bureaux.forEach(bureau => {
+          bureauSelect.innerHTML += `<option value="${bureau}">${bureau}</option>`;
+        });
+        bureauSelect.setAttribute('required', 'required');
+      } else {
+        bureauGroup.style.display = 'none';
+        bureauSelect.value = '';
+        bureauSelect.removeAttribute('required');
+      }
+      updatePrice();
+    }
+
+    function validateBaladia() {
+      const baladia = document.getElementById('commune').value.trim();
+      const errorDiv = document.getElementById('baladiaError');
+      const input = document.getElementById('commune');
+      if (baladia === '') {
+        input.classList.add('error');
+        errorDiv.style.display = 'block';
+      } else {
+        input.classList.remove('error');
+        errorDiv.style.display = 'none';
+      }
+    }
+
+    function updatePrice() {
+      const quantity = parseInt(document.getElementById('quantity').value) || 1;
+      const wilaya = document.getElementById('wilaya').value;
+      const deliveryType = document.getElementById('deliveryType').value;
+
+      // Prix de base
+      let basePrice = quantity * 3500;
+
+      // Frais de livraison
+      let deliveryCost = 0;
+      if (wilaya && deliveryType && DELIVERY_PRICES[wilaya]) {
+        deliveryCost = deliveryType === 'home' 
+          ? DELIVERY_PRICES[wilaya].home 
+          : DELIVERY_PRICES[wilaya].office;
+      }
+
+      // Total final
+      const total = basePrice + deliveryCost;
+      document.getElementById('totalPriceValue').innerText = total;
+    }
+
+    // AJAX Submit
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const baladia = document.getElementById('commune').value.trim();
+      if (baladia === '') {
+        alert('البلدية مطلوبة');
+        return;
+      }
+      const button = this.querySelector('button[type="submit"]');
+      const originalText = button.innerText;
+      button.disabled = true;
+      button.innerText = 'جاري الإرسال...';
+
+      const formData = new FormData(this);
+      const encoded = new URLSearchParams(formData).toString();
+
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encoded
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = '/merci.html?success=true';
+        } else {
+          throw new Error('Erreur Netlify: ' + response.status);
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert('خطأ في الإرسال: ' + err.message);
+      })
+      .finally(() => {
+        button.disabled = false;
+        button.innerText = originalText;
+      });
+    });
+  </script>
+</body>
+</html>
