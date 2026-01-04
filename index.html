@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Coussin Moto Confort Max - Premium Collection - CHAM ACCESSOIRE</title>
-  <meta name="description" content="Coussin Moto Confort Max فاخر - 2 couleurs - 3500 دج فقط.">
+  <meta name="description" content="Coussin Moto Confort Max فاخر - 2 couleurs - 2500 دج فقط.">
   <meta property="og:title" content="Coussin Moto Confort Max - CHAM ACCESSOIRE">
-  <meta property="og:description" content="طبعة 2025 الجديدة ب 3500 دج فقط!">
+  <meta property="og:description" content="طبعة 2025 الجديدة ب 2500 دج فقط!">
   <meta property="og:image" content="coussinphoto.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -75,7 +75,7 @@
 
     <div class="product-card">
       <img class="product-img" id="productImage" src="coussinphoto.jpg" alt="Coussin Moto Confort Max">
-      <div class="price">3500 دج فقط!</div>
+      <div class="price">2500 دج فقط!</div>
       <div class="badge">طبعة 2025 الجديدة - 2 ألوان حصرية</div>
     </div>
 
@@ -95,9 +95,9 @@
         <label for="quantity">الكمية *</label>
         <select id="quantity" name="الكمية" onchange="updatePrice()" required>
           <option value="">اختر الكمية</option>
-          <option value="1">1 - 3500 دج</option>
-          <option value="2">2 - 6500 دج</option>
-          <option value="3">3 - 9000 دج</option>
+          <option value="1">1 - 2500 دج</option>
+          <option value="2">2 - 4500 دج</option>
+          <option value="3">3 - 6000 دج</option>
         </select>
       </div>
 
@@ -193,7 +193,7 @@
       </div>
 
       <div class="total-price">
-        المجموع الكلي: <span id="totalPriceValue">3500</span> دج
+        المجموع الكلي: <span id="totalPriceValue">2500</span> دج
       </div>
 
       <button type="submit" class="animate-pulse-soft">اطلب الآن</button>
@@ -528,9 +528,9 @@
 
     // Prix promo fixe selon la quantité
     let basePrice = 0;
-    if (quantity === 1) basePrice = 3500;
-    else if (quantity === 2) basePrice = 6500;
-    else if (quantity === 3) basePrice = 9000;
+    if (quantity === 1) basePrice = 2500;
+    else if (quantity === 2) basePrice = 4500;
+    else if (quantity === 3) basePrice = 6000;
 
     // Frais de livraison
     let deliveryCost = 0;
@@ -561,7 +561,7 @@
     button.innerText = 'جاري الإرسال...';
 
     // Récupère le total pour le tracking Meta
-    const total = document.getElementById('totalPriceValue').innerText || '3500';
+    const total = document.getElementById('totalPriceValue').innerText || '2500';
 
     const formData = new FormData(this);
     const encoded = new URLSearchParams(formData).toString();
@@ -588,3 +588,4 @@
     });
   });
 </script>
+
